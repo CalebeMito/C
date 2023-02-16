@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+	int n1, n2, n3, n4, soma;
+
+	printf("Digite quatro numeros: ");
+
+	scanf_s("%d", &n1);
+	scanf_s("%d", &n2);
+	scanf_s("%d", &n3);
+	scanf_s("%d", &n4);
+
+	soma = n1 + n2 + n3 + n4;
+
+	printf("SOMA = %d", soma);
+	return 0;
+}
