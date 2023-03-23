@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() 
+{
+    //Declaração de variaveis preco kw leitura uncia 
+    // total a pagar para cada pessoa 
+    // encerrar o numero do consumidor deve ser 0 
+    // quando encerrar mostrar tot consumo para cada tipo 1 2 e 3 
+    // guardar o maior e o menor valor 
+    // media geral
+    // 12 variaveis - identificar as entradas 
+
+    float preco_Kw_hora = 0, qtd_Kw_consumo = 0, total_pagar = 0, tot_residencia = 0, tot_comercial = 0, tot_industrial = 0, media = 0, maior_consumo = 0, menor_consumo = 1000000000000;
+    int numero_consumi = 0, codigo_consumidor = 0, contador = 0;
+
+    // Introdução ao codigo
+    printf("----------------------------------------------\n");
+    printf("Pesquisa de cunsumo mensal de energia eletrica\n");
+    printf("----------------------------------------------\n");
+
+    printf("Informe o preço do KW/h: ");
+    scanf("%f", &preco_Kw_hora);   
+
+    printf("Informe o numero do consumidor: ");
+    scanf("%d", &codigo_consumidor);     
+
+    // Looping para poder esolhor qual o tipo de consumidor
+    while (codigo_consumidor != 0)
+    {
+        contador += 1;
+
+        printf("Preencha os campos abaixo para uma pesquisa referente ao consumo de energia mensal \n");
+        printf("Para RESIDENCIA digite - 1\n");
+        printf("Para COMERCIAL digite - 2\n");
+        printf("Para INDUSTRIAL digite - 3\n");
+        scanf("%d", &numero_consumi);
+    
+        printf("Informe a quantidade de Kw/h que foi consumida no mes: ");
+        scanf("%f", &qtd_Kw_consumo);
+
+        if (maior_consumo < qtd_Kw_consumo) {
+            maior_consumo = qtd_Kw_consumo;
+        } 
+        else if (menor_consumo > qtd_Kw_consumo){
+            menor_consumo = qtd_Kw_consumo;
+        }
+
+        switch (numero_consumi)
+        {
+        case 1:
+            total_pagar = preco_Kw_hora * qtd_Kw_consumo;
+            tot_residencia += total_pagar;
+            printf("O total a pagar é de: %.f\n", total_pagar);
+            break;
+        case 2:
+            total_pagar = preco_Kw_hora * qtd_Kw_consumo;
+            tot_comercial += total_pagar;
+            printf("O total a pagar é de: %.f\n", total_pagar);
+            break;
+        case 3:
+            total_pagar = preco_Kw_hora * qtd_Kw_consumo;
+            tot_industrial += total_pagar;
+            printf("O total a pagar é de: %.f\n", total_pagar);
+            break;
+        default:
+            break;
+        } 
+
+    printf("Para sair digite 0 no numero do consumidor \n");
+    printf("Informe o numero do consumidor: ");
+    scanf("%d", &codigo_consumidor);
+
+    }
+
+    printf("O total de consumo para RESIDENCIA foi de: %.2f\n", tot_residencia);
+    printf("O total de consumo para COMERCIAL foi de: %.2f\n", tot_comercial);
+    printf("O total de consumo para INDUSTRIAL foi de: %.2f\n", tot_industrial);
+
+    media = (tot_comercial + tot_industrial + tot_residencia) / contador;
+    printf("A media geral do consumo é de: %.2f\n", media);
+
+    printf("O maior consumidor verificado foi de: %.f\n", maior_consumo);
+
+    printf("O menor consumidor verificado foi de: %.f\n", menor_consumo);
+
+}
