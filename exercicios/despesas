@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+int main() {
+  float rendimento, agua, luz, telefone, supermercado, combustivel, lazer, educacao, outros, total_despesas = 0;
+  float perc_agua, perc_luz, perc_telefone, perc_supermercado, perc_combustivel, perc_lazer, perc_educacao, perc_outros;
+  float perc_sobrou;
+
+  // entrada de dados
+  printf("Informe o rendimento total mensal: R$ ");
+  scanf("%f", &rendimento);
+
+  printf("Informe as despesas da casa:\n");
+
+  printf("Água: R$ ");
+  scanf("%f", &agua);
+
+  printf("Luz: R$ ");
+  scanf("%f", &luz);
+
+  printf("Telefone: R$ ");
+  scanf("%f", &telefone);
+
+  printf("Supermercado: R$ ");
+  scanf("%f", &supermercado);
+
+  printf("Combustível: R$ ");
+  scanf("%f", &combustivel);
+
+  printf("Lazer: R$ ");
+  scanf("%f", &lazer);
+
+  printf("Educação: R$ ");
+  scanf("%f", &educacao);
+
+  printf("Outros: R$ ");
+  scanf("%f", &outros);
+
+  // verificação do limite de 25%
+  if (agua > rendimento * 0.25) {
+    printf("A despesa de água ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (luz > rendimento * 0.25) {
+    printf("A despesa de luz ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (telefone > rendimento * 0.25) {
+    printf("A despesa de telefone ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (supermercado > rendimento * 0.25) {
+    printf("A despesa de supermercado ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (combustivel > rendimento * 0.25) {
+    printf("A despesa de combustível ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (lazer > rendimento * 0.25) {
+    printf("A despesa de lazer ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (educacao > rendimento * 0.25) {
+    printf("A despesa de educação ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+  if (outros > rendimento * 0.25) {
+    printf("A despesa de outros ultrapassou o limite de 25%% do rendimento total.\n");
+  }
+
+  // cálculo do total das despesas e das porcentagens
+  total_despesas = agua + luz + telefone + supermercado + combustivel + lazer + educacao + outros;
+  perc_agua = agua / rendimento * 100;
+  perc_luz = luz / rendimento * 100;
+  perc_telefone = telefone / rendimento * 100;
+  perc_supermercado = supermercado / rendimento * 100;
+  perc_combustivel = perc_combustivel / rendimento * 100;
+  perc_lazer = lazer / rendimento * 100;
+  perc_educacao = educacao / rendimento * 100;
+  perc_outros = outros / rendimento * 100;
+  perc_sobrou = (rendimento - total_despesas) / rendimento * 100;
+
+  // exibição dos resultados
+  printf("\nTotal de despesas: R$ %.2f\n", total_despesas);
+  printf("Porcentagem de cada despesa em relação ao rendimento:\n");
+  printf("Água: %.2f%%\n", perc_agua);
+  printf("Luz: %.2f%%\n", perc_luz);
+  printf("Telefone: %.2f%%\n", perc_telefone);
+  printf("Supermercado: %.2f%%\n", perc_supermercado);
+  printf("Combustível: %.2f%%\n", perc_combustivel);
+  printf("Lazer: %.2f%%\n", perc_lazer);
+  printf("Educação: %.2f%%\n", perc_educacao);
+  printf("Outros: %.2f%%\n", perc_outros);
+  printf("Valor que sobrou dos rendimentos: R$ %.2f (%.2f%%)\n", (rendimento - total_despesas), perc_sobrou);
+
+  return 0;
+}
