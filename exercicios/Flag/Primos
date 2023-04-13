@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int achou, i, j, valor[10];
+
+    for (i = 0; i < 10; i++)
+    {
+        printf("Digite um valor: ");//input dos valores para o vetor
+        scanf("%d", &valor[i]);
+    }
+
+    for (j = 0; j < 10; j++)
+    {
+        achou = 1;
+        for (i = 2; i < valor[j]; i++)
+        {
+            if (valor[j] % i == 0)
+            {
+                achou = 0;
+                printf("O numero %d nao e primo.\n", valor[j]);
+                break; // Adicionada uma quebra de loop para otimizar o código
+            }
+        }
+        if (achou == 1)
+        {
+            printf("O numero %d e primo.\n", valor[j]);
+        }
+    }
+
+    return 0; // Adicionada uma declaração de retorno para indicar que o programa foi executado com sucesso
+}
